@@ -8,11 +8,6 @@ Você pode clonar o repositório e rodar:
 npm install
 ```
 
-Depois clonar o arquivo `.env.example` para `.env.local`:
-```bash
-cp .env.example .env.local
-```
-E alterar as variáveis de ambiente.
 
 ## Uso
 Para rodar o projeto, utilize o comando padrão:
@@ -24,16 +19,13 @@ comando para criar / npx create-next-app
 comando para rodar / npm run dev
 
 	PRISMA
-instalando prisma/ npm i -D prisma
-npx prisma init
-# import { PrismaClient } from "../generated/prisma";
+
+
+#Crie sua primeira migração para configurar as tabelas do banco de dados:
+npx prisma migrate dev --name nomeDocommit
+
+#Agora execute o seguinte comando para gerar o cliente Prisma:
 npx prisma generate
-
-# Executa o comando no banco
-npx prisma db push
-
-#Executa o comando com migrate como se fosse um commit
-npx prisma migrate dev
 
 
 ##TxT instructions
@@ -56,7 +48,7 @@ npx prisma db push
 
 git clone https://github.com/suporteb7web/node-api-base
 
-npx prisma migrate dev --name add-age-to-user
+
 
 
 
