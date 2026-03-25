@@ -1,10 +1,6 @@
 import { Prisma } from '../../generated/prisma/client';
 import { prisma } from "../lib/prisma"
 
-type CreateUserProps = {
-    name: string;
-    email: string;
-}
 
 export const createUser = async (data: Prisma.UserCreateInput) => {
     try {
@@ -24,4 +20,15 @@ export const createUsers = async (users: Prisma.UserCreateInput[]) => {
         return false;
 
     }
+}
+
+export const getAllUsers = async () => {
+    return await prisma.user.findMany({
+        select: {
+            id: true,
+            name: true,
+            email: true,
+            status: true
+        }
+    });
 }
