@@ -24,6 +24,12 @@ export const createUsers = async (users: Prisma.UserCreateInput[]) => {
 
 export const getAllUsers = async () => {
     return await prisma.user.findMany({
+        where: {
+            email:{
+                endsWith: '@hotmail.com'
+                
+            }  
+        },
         select: {
             id: true,
             name: true,
@@ -38,4 +44,15 @@ export const getUserByEmail = async (email: string) => {
         where: { email }
     });
     return user;
+}
+
+export const updateUser = async () => {
+    return await prisma.user.update({
+        where:{
+            email: 'mayconkabitschke@gmail.com'
+        },
+        data:{
+            role: 'ADMIN'
+        }
+    });
 }
